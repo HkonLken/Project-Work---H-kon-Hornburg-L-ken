@@ -1,0 +1,308 @@
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[a4paper]{geometry}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{subfig}
+\usepackage{acro}
+\usepackage{wrapfig}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{bm}
+\geometry{verbose,tmargin=3cm,bmargin=4cm,lmargin=2.5cm,rmargin=3cm}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage[autostyle=true]{csquotes}
+\usepackage{textcomp}
+\usepackage[unicode=true,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=false]
+ {hyperref}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{tabularx,colortbl}
+\usepackage[table]{xcolor}
+\usepackage[labelfont=bf]{caption}
+\usepackage{icomma} %Fjerner spacing etter komma
+\usepackage[final]{pdfpages} %for å inkludere pdf-er. 
+%bruk dette for å inkludere: \includepdf[pages=-]{file.pdf}
+
+% Disse kommandoene kan gjøre det enklere for LaTeX å plassere figurer og tabeller der du ønsker.
+\setcounter{totalnumber}{5}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.95}
+\renewcommand{\floatpagefraction}{0.35}
+
+%Colors
+\definecolor{brandeisblue}{rgb}{0.0, 0.44, 1.0}
+\definecolor{blizzardblue}{rgb}{0.67, 0.9, 0.93}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{RGB}{255,127,0}
+\definecolor{denim}{rgb}{0.18, 0.48, 0.74}
+\definecolor{deepskyblue}{rgb}{0.0, 0.75, 1.0}
+\definecolor{lightcornflowerblue}{rgb}{0.6, 0.81, 0.93}
+\definecolor{lblue}{rgb}{0.5, 0.71, 0.93}
+
+\makeatletter
+\makeatother
+
+
+
+% probably a good idea for the nomenclature entries:
+\acsetup{first-style=short}
+
+% class `abbrev': abbreviations:
+\DeclareAcronym{nzeb}{
+  short = nZEB ,
+  long  = net Zero Energy Building ,
+  class = abbrev
+}
+
+\DeclareAcronym{npv}{
+  short = NPV ,
+  long  = Net present value ,
+  class = abbrev
+}
+
+\DeclareAcronym{co2}{
+  short = CO$_2$ ,
+  long  = carbon dioxide ,
+  class = abbrev
+}
+
+\DeclareAcronym{pv}{
+  short = PV ,
+  long  = Photovoltaics ,
+  class = abbrev
+}
+
+\DeclareAcronym{hp}{
+    short = HP ,
+    long = Heat Pump ,
+    class = abbrev
+}
+
+\DeclareAcronym{ASHP}{
+    short = ASHP ,
+    long = Air Source Heat Pump ,
+    class = abbrev
+}
+
+\DeclareAcronym{COP}{
+    short = COP ,
+    long = Coefficient of Performance ,
+    class = abbrev
+}
+
+\DeclareAcronym{Mtoe}{
+    short = Mtoe ,
+    long = Million Tonnes of Oil Equivalent ,
+    class = abbrev
+}
+
+\DeclareAcronym{TRNSYS}{
+    short = TRNSYS ,
+    long = Transient Systems Simulation Program ,
+    class = abbrev
+}
+
+\DeclareAcronym{AHU}{
+    short = AHU ,
+    long = Air Handling Unit ,
+    class = abbrev
+}
+
+\DeclareAcronym{CAV}{
+    short = CAV ,
+    long = Constant air volume ,
+    class = abbrev
+}
+
+\DeclareAcronym{VAV}{
+    short = VAV ,
+    long = Variable air volume ,
+    class = abbrev
+}
+
+\DeclareAcronym{DCV}{
+    short = DCV ,
+    long = Demand controlled ventilation ,
+    class = abbrev
+}
+
+\DeclareAcronym{pmv}{
+    short = PMV ,
+    long = Predicted mean vote ,
+    class = abbrev
+}
+
+\DeclareAcronym{PPD}{
+    short = PPD ,
+    long = Predicted percentage of dissatisfied ,
+    class = abbrev
+}
+
+% class `nomencl': nomenclature
+\DeclareAcronym{investment}{
+  short = \ensuremath{I} ,
+  long  = Investment costs [NOK],
+  sort  = I ,
+  class = nomencl
+}
+\DeclareAcronym{lifetime}{
+  short = \ensuremath{n} ,
+  long  = Economic lifetime [years],
+  sort  = n ,
+  class = nomencl
+}
+\DeclareAcronym{balance}{
+  short = \ensuremath{B} ,
+  long  = Yearly balance [NOK],
+  sort  = B ,
+  class = nomencl
+}
+
+\DeclareAcronym{realrate}{
+  short = \ensuremath{r} ,
+  long  = Real rate of return [\%],
+  sort  = r ,
+  class = nomencl
+}
+\DeclareAcronym{Q}{
+  short = \ensuremath{Q} ,
+  long  = Heat [kW],
+  sort  = Q ,
+  class = nomencl
+}
+
+\DeclareAcronym{W}{
+  short = \ensuremath{W} ,
+  long  = Work [kW],
+  sort  = W ,
+  class = nomencl
+}
+
+\DeclareAcronym{To}{
+  short = \ensuremath{t_o} ,
+  long  = Operative temperature [$^o$C],
+  sort  = t$_o$ ,
+  class = nomencl
+}
+
+\begin{document}
+
+%Forside
+\pagestyle{empty} %No headings for the first pages.
+\includepdf[pages={1}, pagecommand={}]{vedlegg/Cover3.pdf}
+\clearpage
+\thispagestyle{empty}
+\newpage
+
+%Tom side
+\pagestyle{empty} %No headings for the first pages.
+\includepdf[pages={1}, pagecommand={}]{vedlegg/Tomside.pdf}
+\clearpage
+
+% Oppgave
+\pagestyle{empty} %No headings for the first pages.
+\includepdf[pages={1}, pagecommand={}]{vedlegg/oppgside1.pdf}
+\clearpage
+\pagestyle{empty} %No headings for the first pages.
+\includepdf[pages={1}, pagecommand={}]{vedlegg/oppgside2.pdf}
+\clearpage
+
+\pagenumbering{roman}
+
+% 
+\chapter*{Preface}
+This report is the product of TEP4530 - Energy and Indoor Environment, Specialization Project at Norwegian University of Science and Technology (NTNU), and counts for 15 credit points. The assignment is realized as a part of the Joint Resarch Centre in Sustainable Energy of NTNU and Shanghai Jiao Tong University (SJTU). The report is written for the Department of Energy and Process Engineering, NTNU. Main supervisor has been Professor Vojislav Novakovic and  Co-Supervisor has been Prof. Yanjun DAI. The work is planned to be continued as a master thesis, conducted at SJTU, spring 2019. \\
+\\
+The main motivation for this project was the interest of contributing to a sustainable future by investigating the possibility of profitable net Zero Energy Buildings.  This interest comes from various courses given at NTNU, and information obtained from school from young age.  \\
+\vspace{4cm}
+\\
+18.11.2018, Trondheim \hfill \includegraphics[]{vedlegg/uskrift.png} \\
+\noindent\rule{5cm}{0.4pt} \hfill \noindent\rule{5cm}{0.4pt} \\
+Date, Place \hfill Håkon H. Løken \hspace{2.35cm} \\
+\vfill
+\begin{center}
+\includegraphics[scale=0.35]{vedlegg/logo.png}
+\end{center}
+
+\newpage
+
+%
+\chapter*{Acknowledgments}
+I would like to thank the Department of Energy and Process Engineering at the faculty of engineering at NTNU. The courses taught by the department, by the professors connected to it, has given me the knowledge that made it possible to complete this work. I want to thank especially my supervisor, professor Vojislav Novakovic for guiding my in this project, and also for teaching me in courses connected to this topic. The courses has developed my interest in the field of study and is the main reason for conducting this work. I also want to thank Professor Hans Martin Mathisen, Professor Guangyu Cao, Associate Professor Laurent Georges, Associate Professor Natasa Nord and Associate Professor Mohamed Hamdy for teaching and providing help when needed. \\
+\\
+I would like to thank the Department of Energy and Process Engineering for providing a great study environment with an open office study room at "Varmetekniske laboratorier". The room has been optimal as it is always a free desk, an additional computer screen for each student and storage possibilities. It has also been great to study in a room with so many student that has knowledge on the same topic. The close access to the professors and other people working for the department has also been great. Finally I want to thank the department for the  supply of coffee. It was especially appreciated at early mornings and long nights working.
+\newpage
+
+\chapter*{Abstract}
+The abstract should be short, preferably no more than one standard A4 page, and give a short overview of the contents of your text. You should tell the reader:
+
+% - what you investigated
+% - how you did it
+% - what you found out
+% By reading the abstract, the reader should be able to determine whether or not they are interested in reading the rest of your paper.
+
+
+\newpage
+
+\chapter*{Sammendrag}
+
+
+\newpage
+
+\tableofcontents %Table of contents 
+
+\listoffigures
+ 
+\listoftables
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+\pagestyle{plain} 
+
+\cleardoublepage
+\pagenumbering{arabic}
+
+\input{01introduksjon.tex}
+
+\input{02teori.tex}
+
+\input{03metode.tex}
+
+\input{04Model.tex}
+
+\input{04resultater.tex}
+
+\input{05diskusjon.tex}
+
+\input{06konklusjon.tex}
+
+\input{06Furtherwork.tex}
+
+\newpage
+
+\printacronyms[include-classes=abbrev,name=Abbreviations]
+
+\printacronyms[include-classes=nomencl,name=Nomenclature]
+
+\newpage
+
+\input{08appendix.tex}
+
+\input{07bibliografi.tex}
+
+\pagestyle{empty}
+\includepdf[pages={2}, pagecommand={}]{vedlegg/Cover.pdf}
+\clearpage
+\thispagestyle{empty}
+
+\end{document}

@@ -1,0 +1,35 @@
+\chapter{Methodology}
+In this chapter the research methods used in this project will be described, explained and discussed. The mathematical models that has been used to analyze the energy and economic aspect will be presented. 
+
+\section{Building Performance Simulation}
+
+Building performance simulation is a computer based, multidisciplinary, and problem oriented mathematical model of a given aspect of building performance based on fundamental physical principles and engineering models. It assumes dynamic boundary conditions and is normally based on numerical methods that aim to provide a simplified and approximate solution of a phenomenon or object of the real world. It will be adopted in this research to estimate the behaviour of a real building located in Shanghai, China to improve the design and operation. Many different simulation tools exists and they variate in system layouts and degree of details in their approach. EnergyPlus and TRNSYS will be used and discussed in this report.
+
+\subsection{TRNSYS}
+Transient Systems Simulation Program (\ac{TRNSYS}) is based on a system layout that allows you to build the system from components in a library. It uses a (black box) approach which is based on experimental data.
+
+\subsection{EnergyPlus}
+
+\begin{wrapfigure}{0}{0.3\textwidth}
+    \centering
+    \vspace{-6mm}
+    \includegraphics[width=0.2\textwidth]{vedlegg/e+.png}
+    \caption{EnergyPlus logo}
+    \vspace{-5mm}
+    \label{fig:e+}
+ \end{wrapfigure}
+ 
+EnergyPlus is a whole building energy simulation program used to model both energy consumption—for heating, cooling, ventilation, lighting and plug and process loads—and water use in buildings. EnergyPlus is funded by the U.S. Department of Energy’s (DOE) Building Technologies Office (BTO), and managed by the National Renewable Energy Laboratory (NREL). The program is available for free download for non commercial individual and educational use \cite{energyplus}.
+
+The software calculates the heating and cooling load necessary depending on the description of the building envelope, technical installations and associated weather data file. 
+
+EnergyPlus lacks a user friendly interface and it is therefore quite time consuming to learn to use the program. Sketchup was used to design the building geometry, and the thermal zones in the building. The material data was then later edited in Open Studio, where also technical installations were added to the building. Energy simulations was made in EnergyPlus. 
+
+\section{Data collection}
+The geometry and use of the building was assumed to represent a typical small office building. Design criteria from Chinese government was used to decide heat transfer coefficients for the building envelope to make sure the building met all legal requirements. These values has been implemented in the simulation models, together with default values set it the programs. This simplification was made as no other data was available and it describes well a typical office building, without any huge investments on the building envelope made to make it energy efficient. This may lead to the result being a worst case scenario and a real case to have the same or a lower energy demand. 
+
+The energy demand is based on simulation in EnergyPlus, where the whole building geometry has been simulated in combination with a HVAC system. This energy demand is beeing used as basis for TRNSYS simulation, where a model combined of HVAC, domestic hot water, heat pump and solar thermal energy was build to calculate if the system can meet the energy demand. Solar energy was also simulated in EnergyPlus to 
+% How did I collect the data
+% How did I interpret the data collected
+% How did I choose these methods?
+% Strengths and weaknesses of these methods
